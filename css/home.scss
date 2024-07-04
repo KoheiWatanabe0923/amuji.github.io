@@ -1,0 +1,159 @@
+@charset "utf-8";
+@import "setting";
+
+/*             ファーストビュー 
+==============================================*/
+#first_view {
+    height: 100vh;
+    .fv_slide {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        .fv_bg {
+            height: 100%;
+            width: 100%;
+            background-image: url("/img/fv01_pc.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include media768 {
+                background-image: url(/img/fv01_sp.jpg);
+            }
+        }
+    }
+    .fv_logo {
+        position: absolute;
+        top: 50vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        max-width: 100%;
+        width: 500px;
+        padding: 28px;
+        img {
+            display: block;
+            margin: auto;
+            width: 100%;
+            max-width: 80vw;
+            height: auto;
+        }
+    }
+}
+
+/*             moreボタン 
+==============================================*/
+.more_btn {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    a {
+        display: block;
+        background-color: #fff;
+        border: 2px solid $baseColor;
+        width: 300px;
+        padding: 26px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: transparent $baseColor transparent transparent;
+            border-width: 0px 18px 18px 0px;
+        }
+        @include media769 {
+            @include animate;
+            &::before{
+                @include animate;
+            }
+            &:hover {
+                color: #fff;
+                @include animate;
+                &::before {
+                    border-width: 0px 400px 400px 0px;
+                    @include animate;
+                }
+            }
+        }
+        span {
+            font-size: 20px;
+            font-family: $fontImFell;
+            z-index: 1;
+            position: relative;
+        }
+    }
+}
+
+/*             アクセス 
+==============================================*/
+#access {
+    .access_flex {
+        display: flex;
+        @include media768 {
+            flex-direction: column;
+        }
+        .access_map {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 550px;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .access_prof {
+            width: 450px;
+            margin-left: 50px;
+            dl {
+                padding: 16px 24px;
+                border-top: 1px solid #fff;
+                &:last-child {
+                    border-bottom: 1px solid #fff;
+                }
+                dt, dd {
+                    font-family: $fontNoto;
+                    line-height: 1.4;
+                }
+                &:first-child {
+                    dt {
+                        font-size: 18px;
+                    }
+                }
+                dt {
+                    font-weight: 700;
+                }
+                dd {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

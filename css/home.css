@@ -1,0 +1,157 @@
+@charset "UTF-8";
+/*             ファーストビュー 
+==============================================*/
+#first_view {
+  height: 100vh;
+}
+#first_view .fv_slide {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+#first_view .fv_slide .fv_bg {
+  height: 100%;
+  width: 100%;
+  background-image: url("/img/fv01_pc.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media only screen and (max-width: 768px) {
+  #first_view .fv_slide .fv_bg {
+    background-image: url(/img/fv01_sp.jpg);
+  }
+}
+#first_view .fv_logo {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 2;
+  max-width: 100%;
+  width: 500px;
+  padding: 28px;
+}
+#first_view .fv_logo img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 80vw;
+  height: auto;
+}
+
+/*             moreボタン 
+==============================================*/
+.more_btn {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.more_btn a {
+  display: block;
+  background-color: #fff;
+  border: 2px solid #42560b;
+  width: 300px;
+  padding: 26px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.more_btn a::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #42560b transparent transparent;
+  border-width: 0px 18px 18px 0px;
+}
+@media only screen and (min-width: 769px) {
+  .more_btn a {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .more_btn a::before {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .more_btn a:hover {
+    color: #fff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .more_btn a:hover::before {
+    border-width: 0px 400px 400px 0px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+}
+.more_btn a span {
+  font-size: 20px;
+  font-family: "IM Fell English", serif;
+  z-index: 1;
+  position: relative;
+}
+
+/*             アクセス 
+==============================================*/
+#access .access_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media only screen and (max-width: 768px) {
+  #access .access_flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+#access .access_flex .access_map {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  width: 100%;
+  height: 550px;
+}
+#access .access_flex .access_map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#access .access_flex .access_prof {
+  width: 450px;
+  margin-left: 50px;
+}
+#access .access_flex .access_prof dl {
+  padding: 16px 24px;
+  border-top: 1px solid #fff;
+}
+#access .access_flex .access_prof dl:last-child {
+  border-bottom: 1px solid #fff;
+}
+#access .access_flex .access_prof dl dt, #access .access_flex .access_prof dl dd {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.4;
+}
+#access .access_flex .access_prof dl:first-child dt {
+  font-size: 18px;
+}
+#access .access_flex .access_prof dl dt {
+  font-weight: 700;
+}
+#access .access_flex .access_prof dl dd {
+  font-weight: 400;
+}
