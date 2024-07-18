@@ -7,13 +7,23 @@
             <div id="main_area">
                 <div id="first_view">
                     <div class="fv_slide">
-                        <div class="fv_bg"></div>
+                        <div class="fv_bg fv01"></div>
+                        <div class="fv_bg fv02"></div>
+                        <div class="fv_bg fv03"></div>
+                        <div class="fv_bg fv04"></div>
                     </div><!--fv_slide -->
                     <div class="fv_logo">
                         <img src="/img/fv_logo.png" alt="佐渡の南インドカレー亜夢路" width="442" hight="266">
                     </div><!--fv_logo -->
+
+                    <!--OP アニメーション-->
+                    <div class="fv_loading">
+                        <div class="fv_logo fv_logo_loading">
+                            <img src="/img/fv_logo_loading.png" alt="佐渡の南インドカレー亜夢路" width="442" hight="266">
+                        </div><!--fv_logo -->
+                    </div>
                 </div><!-- / #first_view -->
-                <section id="news" class="home_section">
+                <section id="news" class="home_section effect">
                     <div class="main_width">
                         <div class="section_title">
                             <h2>NEWS</h2>
@@ -21,23 +31,23 @@
                         <div class="news_group">
                             <a href="/news/detail/" class="news_block">
                                 <p class="date">2021.12.24</p>
-                                <p class="news_title">00月00日（◯）〜00月00日（◯）、カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
+                                <p class="news_title">カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
                             </a>
                             <a href="/news/detail/" class="news_block">
                                 <p class="date">2021.12.24</p>
-                                <p class="news_title">00月00日（◯）〜00月00日（◯）、カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
+                                <p class="news_title">カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
                             </a>
                             <a href="/news/detail/" class="news_block">
                                 <p class="date">2021.12.24</p>
-                                <p class="news_title">00月00日（◯）〜00月00日（◯）、カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
+                                <p class="news_title">カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
                             </a>
                             <a href="/news/detail/" class="news_block">
                                 <p class="date">2021.12.24</p>
-                                <p class="news_title">00月00日（◯）〜00月00日（◯）、カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
+                                <p class="news_title">カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
                             </a>
                             <a href="/news/detail/" class="news_block">
                                 <p class="date">2021.12.24</p>
-                                <p class="news_title">00月00日（◯）〜00月00日（◯）、カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
+                                <p class="news_title">カレーマルシェ佐渡0000年度フェスタに出店します。新作カレーもご用意しています</p>
                             </a>
                         </div>
                         <div class="more_btn">
@@ -45,7 +55,7 @@
                         </div>
                     </div><!-- / .main_width -->
                 </section><!-- / #news -->
-                <section id="menu" class="home_section">
+                <section id="menu" class="home_section effect">
                     <div class="main_width">
                         <div class="section_title">
                             <h2>MENU</h2>
@@ -72,7 +82,7 @@
                         </div>
                     </div><!-- / .main_width -->
                 </section><!-- / #menu -->
-                <section id="access" class="home_section">
+                <section id="access" class="home_section effect">
                     <div class="main_width">
                         <div class="section_title">
                             <h2>ACCESS</h2>
@@ -114,5 +124,36 @@
             <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-footer.php"); ?>
         </div><!--wrapper-->
         <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-sp_navi.php"); ?>
+        <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-js.php"); ?>
+        <!--slick js-->
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script>
+
+        //OP アニメーション
+        $(function(){
+            setTimeout(function(){
+                $(".fv_logo_loading").addClass("load");
+            },500);
+            setTimeout(function(){
+                $(".fv_loading").addClass("load");
+            },2000);
+            setTimeout(function(){
+                $("header").addClass("load");
+                $(".fv_loading").addClass("none");
+            },3000);
+            setTimeout(function(){
+                $("#first_view").addClass("load");
+            },5000);
+            setTimeout(function(){
+                $('.fv_slide').slick({
+                    fade: true,
+                    autoplay: true,
+                    dots: true,
+                    arrows: false,
+                });
+            },7500);
+        });
+        
+        </script>
     </body>
 </html>

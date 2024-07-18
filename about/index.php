@@ -6,7 +6,7 @@
     <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-header.php"); ?>
 
     <div id="main_area">
-        <section id="about" class="lower_section">
+        <section id="about" class="lower_section effect">
             <div><!-- main_width削除 -->
                 
                 <div class="section_title">
@@ -40,12 +40,11 @@
             </div>
 
         </section><!-- / #about -->    
-
+        <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-page_top.php"); ?>
     </div><!-- / #main_area -->
     <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-footer.php"); ?>
 </div><!--wrapper-->
 <?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-sp_navi.php"); ?>
-
-
+<?php include( $_SERVER['DOCUMENT_ROOT'] ."/inc/inc-js.php"); ?>
 </body>
 </html>

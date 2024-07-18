@@ -1,13 +1,17 @@
 @charset "UTF-8";
-/*             ファーストビュー 
-==============================================*/
+/*　               ファーストビュー　               
+================================================*/
 #first_view {
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 #first_view .fv_slide {
   height: 100%;
   width: 100%;
-  position: relative;
+}
+#first_view .fv_slide .slick-list, #first_view .fv_slide .slick-track {
+  height: 100%;
 }
 #first_view .fv_slide .fv_bg {
   height: 100%;
@@ -19,15 +23,62 @@
 }
 @media only screen and (max-width: 768px) {
   #first_view .fv_slide .fv_bg {
-    background-image: url(/img/fv01_sp.jpg);
+    background-image: url("/img/fv01_sp.jpg");
   }
+}
+#first_view .fv_slide .fv_bg.fv02 {
+  background-image: url("/img/fv02_pc.jpg");
+}
+@media only screen and (max-width: 768px) {
+  #first_view .fv_slide .fv_bg.fv02 {
+    background-image: url("/img/fv02_sp.jpg");
+  }
+}
+#first_view .fv_slide .fv_bg.fv03 {
+  background-image: url("/img/fv03_pc.jpg");
+}
+@media only screen and (max-width: 768px) {
+  #first_view .fv_slide .fv_bg.fv03 {
+    background-image: url("/img/fv03_sp.jpg");
+  }
+}
+#first_view .fv_slide .fv_bg.fv04 {
+  background-image: url("/img/fv04_pc.jpg");
+}
+@media only screen and (max-width: 768px) {
+  #first_view .fv_slide .fv_bg.fv04 {
+    background-image: url("/img/fv04_sp.jpg");
+  }
+}
+#first_view .fv_slide .slick-dots {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: auto;
+  z-index: 2;
+}
+@media only screen and (max-width: 768px) {
+  #first_view .fv_slide .slick-dots {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+#first_view .fv_slide .slick-dots li {
+  margin: 0;
+}
+#first_view .fv_slide .slick-dots li button::before {
+  color: #fff;
+  opacity: 1;
+}
+#first_view .fv_slide .slick-dots li.slick-active button::before {
+  color: #42560b;
+  opacity: 1;
 }
 #first_view .fv_logo {
   position: absolute;
-  top: 50vh;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   max-width: 100%;
   width: 500px;
@@ -40,17 +91,65 @@
   max-width: 80vw;
   height: auto;
 }
+#first_view .fv_loading {
+  background: url(/img/bk_pattern.jpg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+#first_view .fv_loading.load {
+  opacity: 0;
+  transition: all 3.5s;
+}
+#first_view .fv_loading.none {
+  display: none;
+}
+#first_view .fv_loading .fv_logo_loading::before {
+  background: url(/img/bk_pattern.jpg);
+  position: absolute;
+  content: "";
+  display: block;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+#first_view .fv_loading .fv_logo_loading.load::before {
+  height: 0;
+  transition: all 1.5s;
+}
+#first_view::before, #first_view::after {
+  position: absolute;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100vw;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+#first_view::before {
+  top: 0;
+}
+#first_view::after {
+  bottom: 0;
+}
+#first_view.load::before, #first_view.load::after {
+  height: 0;
+  opacity: 0;
+  transition: all 1.5s;
+}
 
-/*             moreボタン 
-==============================================*/
+/*　               more               
+================================================*/
 .more_btn {
   margin-top: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 .more_btn a {
   display: block;
@@ -71,26 +170,22 @@
   width: 0;
   height: 0;
   border-style: solid;
+  border-width: 0 18px 18px 0;
   border-color: transparent #42560b transparent transparent;
-  border-width: 0px 18px 18px 0px;
 }
 @media only screen and (min-width: 769px) {
   .more_btn a {
-    -webkit-transition: 0.5s;
     transition: 0.5s;
   }
   .more_btn a::before {
-    -webkit-transition: 0.5s;
     transition: 0.5s;
   }
   .more_btn a:hover {
     color: #fff;
-    -webkit-transition: 0.5s;
     transition: 0.5s;
   }
   .more_btn a:hover::before {
-    border-width: 0px 400px 400px 0px;
-    -webkit-transition: 0.5s;
+    border-width: 0 400px 400px 0;
     transition: 0.5s;
   }
 }
@@ -101,34 +196,25 @@
   position: relative;
 }
 
-/*             アクセス 
-==============================================*/
+/*　               access               
+================================================*/
 #access .access_flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 @media only screen and (max-width: 768px) {
   #access .access_flex {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
 #access .access_flex .access_map {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   position: relative;
   width: 100%;
   height: 550px;
 }
 @media only screen and (max-width: 768px) {
   #access .access_flex .access_map {
-    -webkit-box-flex: 1;
-        -ms-flex: auto;
-            flex: auto;
+    flex: auto;
     height: 0;
     padding-top: 84%;
   }
@@ -187,3 +273,4 @@
 #access .access_flex .access_prof dl dd {
   font-weight: 400;
 }
+/*# sourceMappingURL=home.css.map */

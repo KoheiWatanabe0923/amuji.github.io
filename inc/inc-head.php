@@ -17,7 +17,10 @@
         <link rel="stylesheet" href="/css/lower.css">
     <?php } else {//トップページの時?>
         <link rel="stylesheet" href="/css/home.css">
-    <?php } ?>   
+    <?php } ?>  
+    <!-- slick css --> 
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -105,3 +105,61 @@
     padding-right: 10%;
   }
 }
+
+.news_detail {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 50px 90px;
+}
+@media only screen and (max-width: 768px) {
+  .news_detail {
+    padding: 24px;
+  }
+}
+.news_detail .news_head {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #cacaca;
+}
+@media only screen and (max-width: 768px) {
+  .news_detail .news_head {
+    padding-bottom: 20px;
+  }
+}
+.news_detail .news_head .head_date {
+  font-family: "IM Fell English", serif;
+  color: #a0aa85;
+  font-size: 20px;
+  text-align: right;
+}
+.news_detail .news_head .head_title {
+  font-size: 20px;
+  font-family: "Noto Sans JP", sans-serif;
+  padding-top: 1em;
+  line-height: 1.6;
+  text-align: left;
+}
+@media only screen and (max-width: 768px) {
+  .news_detail .news_head .head_title {
+    font-size: 17px;
+    padding-top: 0.4em;
+  }
+}
+.news_detail .news_contents {
+  padding-top: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .news_detail .news_contents {
+    padding-top: 20px;
+  }
+}
+.news_detail .news_contents p {
+  line-height: 2;
+  word-wrap: break-word;
+  font-size: 15px;
+}
+.news_detail .news_contents img {
+  margin: auto;
+}
+.news_detail .news_contents p + p, .news_detail .news_contents p + img, .news_detail .news_contents img + p, .news_detail .news_contents img + img {
+  padding-top: 30px;
+}

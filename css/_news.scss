@@ -1,0 +1,59 @@
+//////////////news//////////////////
+@mixin news{
+    .news_detail{ 
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 50px 90px;
+      @include media768{
+        padding: 24px;
+      }
+      .news_head{
+        padding-bottom: 30px;
+        border-bottom: 1px solid #cacaca;
+        @include media768{
+          padding-bottom: 20px;
+        }
+        .head_date{ 
+          font-family: $fontImFell;
+          color: #a0aa85;
+          font-size: 20px;
+          text-align: right;
+        }
+        .head_title{
+          font-size: 20px;
+          font-family: $fontNoto;
+          padding-top: 1em;
+          line-height: 1.6;
+          text-align: left; 
+          @include media768{
+            font-size: 17px;
+            padding-top: 0.4em;
+          }
+        }
+      }//news_head
+  
+      .news_contents{
+        padding-top: 30px;
+        @include media768{
+          padding-top: 20px;
+        }
+        p{
+          line-height: 2;
+          word-wrap: break-word;//例が○○だったため折り返しできず、仮で設定
+          font-size: 15px;
+        }
+        img{
+          margin: auto;
+        }
+  
+        p, img{//二つ目以降の画像か文字には余白
+          +p,+img{
+            padding-top: 30px;
+          }
+        }
+  
+      }//news_contents
+    }//news_detail
+  }
+  
+  

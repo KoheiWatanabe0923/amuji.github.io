@@ -80,35 +80,48 @@ a:visited {
   position: relative;
 }
 
-.home_section {
+.home_section,
+.lower_section {
   padding-top: 130px;
 }
 @media only screen and (max-width: 1024px) {
-  .home_section {
+  .home_section,
+  .lower_section {
     padding-top: 120px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .home_section {
+  .home_section,
+  .lower_section {
     padding-top: 100px;
   }
 }
 @media only screen and (max-width: 480px) {
-  .home_section {
+  .home_section,
+  .lower_section {
     padding-top: 60px;
   }
 }
 
-#access.home_section {
+@media only screen and (max-width: 480px) {
+  .lower_section {
+    padding-top: 100px;
+  }
+}
+
+#access.home_section,
+.lower_section {
   padding-bottom: 140px;
 }
 @media only screen and (max-width: 1024px) {
-  #access.home_section {
+  #access.home_section,
+  .lower_section {
     padding-bottom: 120px;
   }
 }
 @media only screen and (max-width: 768px) {
-  #access.home_section {
+  #access.home_section,
+  .lower_section {
     padding-bottom: 90px;
   }
 }
@@ -139,7 +152,7 @@ a:visited {
 
 /*                共通パーツ
 ======================================================= */
-.section_title h2 {
+.section_title h1, .section_title h2 {
   text-align: center;
   padding-bottom: 50px;
   font-size: 40px;
@@ -147,17 +160,17 @@ a:visited {
   letter-spacing: 0.05em;
 }
 @media only screen and (max-width: 1024px) {
-  .section_title h2 {
+  .section_title h1, .section_title h2 {
     font-size: 38px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .section_title h2 {
+  .section_title h1, .section_title h2 {
     font-size: 30px;
   }
 }
 @media only screen and (max-width: 480px) {
-  .section_title h2 {
+  .section_title h1, .section_title h2 {
     font-size: 26px;
   }
 }
@@ -180,6 +193,11 @@ header {
   header {
     height: 70px;
   }
+}
+header.scroll {
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 header .hd_inner {
   position: relative;
@@ -346,6 +364,17 @@ header .hd_inner .hd_tel p img {
 
 #home header {
   color: #fff;
+  opacity: 0;
+}
+#home header.scroll {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#home header.load {
+  opacity: 1;
+  -webkit-transition: all 2s;
+  transition: all 2s;
 }
 #home header .hd_inner .hd_navi ul li a {
   display: block;
@@ -501,7 +530,7 @@ body.sp_menu_open {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px 60px 20px 20px;
+  padding: 14px 60px 14px 20px;
 }
 #news .news_group .news_block + .news_block {
   border-top: 1px solid #e3e3e3;
@@ -590,22 +619,51 @@ body.sp_menu_open {
   padding: 0 10px;
   width: 33.3333%;
 }
+@media only screen and (min-width: 769px) {
+  #menu .menu_group .menu_block:nth-child(n+4) {
+    margin-top: 70px;
+  }
+}
 @media only screen and (max-width: 768px) {
   #menu .menu_group .menu_block {
     width: 100%;
+    max-width: 400px;
+  }
+  #menu .menu_group .menu_block:nth-child(n+2) {
+    margin-top: 40px;
   }
 }
 #menu .menu_group .menu_block p {
   text-align: center;
 }
 #menu .menu_group .menu_block p.menu_title {
-  font-size: 16px;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 700;
 }
 #menu .menu_group .menu_block p.menu_price {
   font-size: 20px;
   font-family: "IM Fell English", serif;
+}
+#menu .menu_group .menu_block p.menu_catch {
+  font-family: "Noto Sans JP", sans-serif;
+  padding-top: 1px;
+}
+#menu .menu_group .menu_block p.menu_description {
+  font-family: "Noto Sans JP", sans-serif;
+  padding-top: 2em;
+  position: relative;
+}
+#menu .menu_group .menu_block p.menu_description::before {
+  position: absolute;
+  content: "";
+  display: block;
+  background-color: #42560b;
+  width: 10px;
+  height: 10px;
+  top: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
 }
 
 /*                トップへ戻るボタン
@@ -614,12 +672,25 @@ body.sp_menu_open {
   position: fixed;
   right: 40px;
   bottom: 40px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 @media only screen and (max-width: 768px) {
   #page_top {
     right: 24px;
     bottom: 30px;
   }
+}
+#page_top.scroll {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#page_top.bottom {
+  position: absolute;
 }
 #page_top .btn_top {
   display: block;
@@ -710,4 +781,41 @@ footer .ft_inner .copyright p {
   font-size: 12px;
   font-family: "IM Fell English", serif;
   color: #a0aa85;
+}
+
+/*                animation
+======================================================= */
+@-webkit-keyframes fadein-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes fadein-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+.home_section.active {
+  -webkit-animation-name: fadein-up;
+          animation-name: fadein-up;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
